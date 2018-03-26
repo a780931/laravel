@@ -10,7 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/**
+ *
 
 Route::get('/', function () {
     return view('welcome');
+});
+ */
+Route::group(['namespace'=>'Admin','prefix'=>'admin'],function (){
+    Route::get("","UserController@index");
+    Route::resource("/user","UserController");
+    Route::resource("/goods","GoodsController");
 });
